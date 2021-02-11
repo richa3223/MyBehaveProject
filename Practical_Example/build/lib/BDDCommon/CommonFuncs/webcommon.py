@@ -2,16 +2,13 @@ from selenium import webdriver
 
 
 def go_to(url, browser_type=None):
-    print("Inside goto function")
     if not browser_type:
         driver = webdriver.Chrome()
-
     elif browser_type.lower() == 'firefox':
         driver = webdriver.Firefox()
     else:
         raise Exception(f" The browser type {browser_type} is nor supported")
     url = url.strip()
-    url= 'https://' + url + '/'
     driver.get(url)
     return driver
 
@@ -20,8 +17,7 @@ def assert_page_title(context, expected_title):
     actual_title = context.driver.title
     print(f"Actual title is {actual_title}")
     print(f"Expected title is {expected_title}")
-    assert actual_title == expected_title, f"Title does not match with the expected title," \
-                                           f" actual title is :{actual_title}, expected title is :{expected_title}"
+    assert actual_title == expected_title, f"Title does not match with the expected title, title is :{actual_title}"
     print("Page title is expected.")
 
 

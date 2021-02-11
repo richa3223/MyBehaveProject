@@ -8,13 +8,13 @@ def go_to_url(context, url):
     context.driver = webcommon.go_to(url)
 
 
-@then("The page title should be {expected_title}")
+@then("The page title should be '{welcome to python.org}'")
 def verify_homepage_title(context, expected_title):
     print("Verifying title")
     webcommon.assert_page_title(context, expected_title)
 
 
-@then("the current url should be {expected_url}")
+@then("the current url should be '{www.python.org}'")
 def verify_current_url(context, expected_url):
     print("Verifying expected url")
-    webcommon.assert_currenturl(context, expected_url)
+    webcommon.assert_currenturl(expected_url)
